@@ -65,9 +65,9 @@ def run_simulation(test_node_id, citation_neurons, class_neurons, time_steps=20,
         weight = nest.GetConnections(source=class_neuron, target=test_neuron).get(["weight"])
         result_table[c] = weight["weight"]
 
-    highest = min(result_table.items(), key=lambda x: x[1])[0]
+    best = min(result_table.items(), key=lambda x: x[1])[0]
 
     if reset:
         nest.ResetKernel()
 
-    return highest
+    return best
